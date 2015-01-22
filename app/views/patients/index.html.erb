@@ -1,0 +1,21 @@
+<h1>Patient List</h1>
+
+
+
+
+  <ul>
+    <% @patients.each do |patient| %>
+    <li>
+      First Name: <%= patient.first_name %><br>
+      Last Name: <%= patient.last_name %><br>
+      Birth Date: <%= patient.date_of_birth %><br>
+      Symptom: <%= patient.description %><br>
+      Gender: <%= patient.gender %><br>
+      Blood Type: <%= patient.blood_type %>
+    </li>
+  <%= link_to "Edit", edit_patient_path(patient.id) %>
+  <%= link_to "Delete", patient_path(patient.id), method: :destroy %><br>
+ <% end %>
+   </ul>
+   <br>
+   
