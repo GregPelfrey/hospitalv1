@@ -1,7 +1,7 @@
 <h1>Patient List</h1>
 
 
-
+<%= link_to "New Patient", new_patient_path %>
 
   <ul>
     <% @patients.each do |patient| %>
@@ -13,8 +13,8 @@
       Gender: <%= patient.gender %><br>
       Blood Type: <%= patient.blood_type %>
     </li>
-  <%= link_to "Edit", edit_patient_path(patient.id) %>
-  <%= link_to "Delete", patient_path(patient.id), method: :destroy %><br>
+  <%= link_to "Edit", edit_patient_path(patient) %>
+  <%= link_to "Delete", patient_path(patient), method: :delete %><br>
  <% end %>
    </ul>
    <br>

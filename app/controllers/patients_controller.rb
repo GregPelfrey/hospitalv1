@@ -8,7 +8,8 @@ class PatientsController < ApplicationController
     end
 
     def create
-      @patient = Patient.create patient_params
+      @patient = Patient.create patient_params 
+      # @patient = Patient.create params[:patient]
       if @patient.save
         flash[:notice]="New Patient Added"
       redirect_to patients_path
@@ -17,6 +18,10 @@ class PatientsController < ApplicationController
       redirect_to patients_path
       render :new
       end
+    end
+
+    def edit
+      @patient = Patient.find params[:id]
     end
 
     def update
@@ -28,7 +33,7 @@ class PatientsController < ApplicationController
     def destroy
       @patient = Patient.find params[:id]
       @patient.delete
-      redirect_to patients_path
+      redirect_to root_path
     end
 
 private
