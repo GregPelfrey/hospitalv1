@@ -15,7 +15,6 @@ class PatientsController < ApplicationController
       redirect_to patients_path
       else
       flash[:error]="Save Unsuccessful"
-      redirect_to patients_path
       render :new
       end
     end
@@ -27,13 +26,19 @@ class PatientsController < ApplicationController
     def update
       @patient = Patient.find params[:id]
       @patient.update_attributes patient_params
-      redirect_to patients_path
+        if @patient.save
+        flash[:notice] = 'Patient Update Added.'
+        redirect_to patients_path
+        else
+          flash[:error] = "Patient Update Was NOT Added."
+          render :new
+        end
     end
 
     def destroy
       @patient = Patient.find params[:id]
       @patient.delete
-      redirect_to root_path
+      redirect_to patients_path
     end
 
 private
