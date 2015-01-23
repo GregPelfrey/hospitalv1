@@ -1,4 +1,6 @@
 class Patient < ActiveRecord::Base
+belongs_to :hospital
+
   validates :first_name,  presence:   true
   validates :last_name,  presence:   true
   validates :description,  presence:   true

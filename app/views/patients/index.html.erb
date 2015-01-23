@@ -1,6 +1,6 @@
 <h1>Patient List</h1>
 
-
+<%= link_to "Home", root_path %>
 <%= link_to "New Patient", new_patient_path %>
 
   <ul>
@@ -12,9 +12,10 @@
       Symptom: <%= patient.description %><br>
       Gender: <%= patient.gender %><br>
       Blood Type: <%= patient.blood_type %>
-    </li>
+    
   <%= link_to "Edit", edit_patient_path(patient) %>
   <%= link_to "Delete", patient_path(patient), method: :delete %><br>
+  </li>
  <% end %>
    </ul>
    <br>

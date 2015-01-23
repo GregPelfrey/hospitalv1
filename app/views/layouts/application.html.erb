@@ -8,13 +8,14 @@
 </head>
 <body>
 <%= link_to "Home", root_path %>
-<%= link_to "Patient List", patients_path %>
+<%= link_to "Hospital List", hospitals_path %>
+
  <% if flash[:notice] %>
-    <h3 id="notice"><%= flash[:notice] %></h3>
+    <p id="notice"><%= flash[:notice] %></p>
   <% end %>
 
   <% if flash[:error] %>
-    <h3 id="error"><%= flash[:error] %></h3>
+    <p id="error"><%= flash[:error] %></p>
   <% end %>
 <%= yield %>
 

@@ -12,3 +12,6 @@ class CreatePatients < ActiveRecord::Migration
     end
   end
 end
+
+
+t.belongs_to :customer, index: true

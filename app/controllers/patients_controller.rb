@@ -4,19 +4,23 @@ class PatientsController < ApplicationController
     end
 
     def new
-      @patient = Patient.new
+      # @patient = Patient.new
+      @hospital = Hospital.find params[:hospital_id]
+      @patient = @hospital.patients.new
     end
 
     def create
-      @patient = Patient.create patient_params 
-      # @patient = Patient.create params[:patient]
-      if @patient.save
-        flash[:notice]="New Patient Added"
-      redirect_to patients_path
-      else
-      flash[:error]="Save Unsuccessful"
-      render :new
-      end
+      @hospital = Hospital.find params[:hospital_id]
+      @patient = @hospital.patients.create patient_params
+      redirect_to hospital_path(@hospital)
+      # @patient = Patient.create patient_params 
+      # if @patient.save
+      #   flash[:notice]="New Patient Added"
+      # redirect_to patients_path
+      # else
+      # flash[:error]="Save Unsuccessful"
+      # render :new
+      # end
     end
 
     def edit
@@ -26,13 +30,13 @@ class PatientsController < ApplicationController
     def update
       @patient = Patient.find params[:id]
       @patient.update_attributes patient_params
-        if @patient.save
-        flash[:notice] = 'Patient Update Added.'
+        # if @patient.save
+        # flash[:notice] = 'Patient Update Added.'
         redirect_to patients_path
-        else
-          flash[:error] = "Patient Update Was NOT Added."
-          render :new
-        end
+        # else
+        #   flash[:error] = "Patient Update Was NOT Added."
+        #   render :new
+        # end
     end
 
     def destroy

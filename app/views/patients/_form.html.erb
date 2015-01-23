@@ -1,6 +1,8 @@
 <br>
 
-<%= form_for @patient do |f| %>
+<%=  %>
+
+<%= form_for [@hospital, @patient] do |f| %>
 <%= f.label :first_name %>
 <%= f.text_field :first_name %>
 <br>
@@ -24,6 +26,6 @@
 <br>
 <%= f.submit %>
 
-<%= link_to "Cancel", patients_path %>
+<%= link_to "Cancel", hospital_path(@hospital) %>
 
 <% end %>

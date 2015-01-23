@@ -1,0 +1,48 @@
+<%= form_for(@hospital) do |f| %>
+
+  <% if @hospital.errors.any? %>
+  <% @hospital.errors.full_messages.each do |message| %>
+  <%= message %><br>
+  <% end %>
+  <% end %>
+
+  <div class = "field">
+    <%=f.label :name %>
+    <%=f.text_field :name %><br>
+  </div>
+
+  <div class = "field">
+    <%=f.label :address1 %>
+    <%=f.text_field :address1 %><br>
+  </div>
+
+  <div class = "field">
+    <%=f.label :address2 %>
+    <%=f.text_field :address2 %><br>
+  </div>
+
+  <div class = "field">
+    <%=f.label :city %>
+    <%=f.text_field :city %>
+  </div>
+
+  <div class = "field">
+    <%=f.label :state %>
+    <%=f.text_field :state %><br>
+  </div>
+
+  <div class = "field">
+    <%=f.label :zip %>
+    <%=f.text_field :zip %><br>
+  </div>
+
+  <div class = "field">
+    <%=f.label :phone %>
+    <%=f.text_field :phone %><br>
+  </div>
+
+  <div class= "actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+

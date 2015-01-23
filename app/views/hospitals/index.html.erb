@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<%= link_to "Root", root_path %>
+
+<h1>Hospital Listing</h1>
+<br>
+<br>
+<% @hospitals.each do |hospital| %>
+<%= hospital.name %>
+<%= hospital.address1 %>
+<%= hospital.address2 %>
+<%= hospital.city %>
+<%= hospital.state %>
+<%= hospital.zip %>
+<%= hospital.phone %>
+<%= link_to "List", hospital_path(hospital) %>
+<%= link_to "Edit", edit_hospital_path(hospital) %>
+<%= link_to "Delete", hospital, method: :delete, data: {confirm: "Are you certain you want to delete this location and all of its data?"} %><br>
+
+<% end %>
+
+<%= link_to "New Hospital", new_hospital_path %>
