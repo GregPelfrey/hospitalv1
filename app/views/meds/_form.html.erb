@@ -1,0 +1,19 @@
+<br>
+<%= form_for [@hospital, @patient, @med] do |f| %>
+
+  <%= f.label :med_name %>
+  <%= f.text_field :med_name %>
+  <br>
+  <%= f.label :med_class %>
+  <%= f.text_field :med_class %>
+  <br>
+  <%= f.label :med_dosage %>
+  <%= f.text_field :med_dosage %>
+  <br>
+  <%= f.label :med_use %>
+  <%= f.text_field :med_use %>
+  <br>
+
+  <br>
+<%= f.submit %>
+<% end %>

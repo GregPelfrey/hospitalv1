@@ -5,16 +5,11 @@ before_action :set_hospital, only:[:show, :edit, :update, :destroy]
     @hospitals = Hospital.all 
   end
 
-  def show
-    @patients = @hospital.patients
-  end
-
   def new
     @hospital = Hospital.new
   end
 
   def edit
-    # @hospital = Hospital.find params[:id]
   end
 
   def create
@@ -28,6 +23,10 @@ before_action :set_hospital, only:[:show, :edit, :update, :destroy]
     end
   end
 
+   def show
+      @patients = @hospital.patients
+    end
+
   def update
     respond_to do |format|
       if @hospital.update(hospital_params)
@@ -40,31 +39,30 @@ before_action :set_hospital, only:[:show, :edit, :update, :destroy]
   end
 end
 
-    def destroy
-      @hospital.destroy
+  def destroy
+    @hospital.destroy
       respond_to do |format|
-        format.html {redirect_to hospitals_url, notice: "Hospital was Removed!!"}
-        format.json {head :no_content }
-      end
-      
-    end
+      format.html {redirect_to hospitals_url, notice: "Hospital was Removed!!"}
+      format.json {head :no_content }
+      end      
+  end
 
-    private
-    def set_hospital
-      @hospital = Hospital.find(params[:id])
-    end
+  private
+  def set_hospital
+    @hospital = Hospital.find(params[:id])
+  end
 
-    def hospital_params
-      params.require(:hospital).permit(
-        :name,
-        :address1,
-        :address2,
-        :city,    
-        :state,   
-        :zip,     
-        :phone
-      )
-    end
+  def hospital_params
+    params.require(:hospital).permit(
+      :name,
+      :address1,
+      :address2,
+      :city,    
+      :state,   
+      :zip,     
+      :phone
+    )
+  end
 
 end
 

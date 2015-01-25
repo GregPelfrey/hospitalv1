@@ -1,0 +1,28 @@
+<p>
+<strong>Name: </strong>
+<%= @patient.first_name %>
+<%= @patient.last_name %><br>
+<strong>Date of Birth: </strong>
+<%= @patient.date_of_birth %><br>
+<strong>Problem Description: </strong>
+<%= @patient.description %><br>
+<strong>Gender:  </strong>
+<%= @patient.gender %><br>
+<strong>Blood Type: </strong>
+<%= @patient.blood_type %>
+</p>
+
+<p>
+  <strong>Medicine Listing</strong><br>
+  <ul>
+    <% @meds.each do |med| %>
+    <li><%= med.med_name %> <br> Classification:  <%= med.med_class %> <br> Dosage: <%= med.med_dosage %> <br> Medical Use: <%= med.med_use %> </li>
+    <%= link_to "Edit Med", edit_hospital_patient_med_path(@hospital, @patient, med)%>
+    <%= link_to "Delete", hospital_patient_med_path(@hospital, @patient, med), method: :delete %><br>
+    <% end%>
+  </ul>
+</p>
+<%= link_to "Add Medicine", new_hospital_patient_med_path(@hospital, @patient) %><br>
+<%= link_to "Edit Patient", edit_hospital_patient_path(@hospital, @patient) %><br>
+<%= link_to "Patient Listing", hospital_path(@hospital) %><br>
+<br>

@@ -1,31 +1,29 @@
 <br>
 
-<%=  %>
+  <%= form_for [@hospital, @patient] do |f| %>
 
-<%= form_for [@hospital, @patient] do |f| %>
-<%= f.label :first_name %>
-<%= f.text_field :first_name %>
-<br>
-<%= f.label :last_name %>
-<%= f.text_field :last_name %>
-<br>
-<%= f.label :date_of_birth %>
-<%= f.date_field :date_of_birth %>
-<br>
-<%= f.label :description %>
-<%= f.text_field :description %>
-<br>
-<%= f.label :gender %>
-<%= f.radio_button :gender, "Male" %>
-<%= label :gender_male, 'Male' %>
-<%= f.radio_button :gender, "Female" %>
-<%= label :gender_female, 'Female' %>
-<br>
-<%= f.label :blood_type %>
-<%= f.select :blood_type, options_for_select(Patient::BLOOD_TYPE, f.object), include_blank: "--- Select ---" %>
-<br>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <br>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <br>
+  <%= f.label :date_of_birth %>
+  <%= f.date_field :date_of_birth %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.label :gender %>
+  <%= f.radio_button :gender, "Male" %>
+  <%= label :gender_male, 'Male' %>
+  <%= f.radio_button :gender, "Female" %>
+  <%= label :gender_female, 'Female' %>
+  <br>
+  <%= f.label :blood_type %>
+  <%= f.select :blood_type, options_for_select(Patient::BLOOD_TYPE, @patient.blood_type), include_blank: "--- Select ---" %>
+  <br>
 <%= f.submit %>
 
 <%= link_to "Cancel", hospital_path(@hospital) %>
-
 <% end %>

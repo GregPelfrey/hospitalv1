@@ -10,13 +10,4 @@ class Hospital < ActiveRecord::Base
 
   has_many  :patients, dependent:  :destroy
 
-
-  def is_open?
-    if self.opening && self.opening <= Date.today
-      "Open"
-    else
-      "Closed"
-    end
-  end          
-
 end
